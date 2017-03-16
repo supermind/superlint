@@ -1,0 +1,36 @@
+{
+  "name": "superlint",
+  "version": "0.0.1",
+  "description": "Supermind linting standards",
+  "homepage": "https://github.com/supermind/superlint#readme",
+  "author": "Matthew Wagerfield <matthew@supermind.com>",
+  "license": "MIT",
+  "keywords": [
+    "supermind",
+    "standard",
+    "eslint",
+    "rules"
+  ],
+  "bin": {
+    "superlint": "cli.js"
+  },
+  "files": [
+    "*.js"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/supermind/superlint.git"
+  },
+  "bugs": {
+    "url": "https://github.com/supermind/superlint/issues"
+  },
+  "dependencies": {
+    "eslint": "^3.17.1",
+    "eslint-config-supermind": "^0.20.0",
+    "standard-engine": "^6.0.0"
+  }
+}

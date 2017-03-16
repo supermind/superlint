@@ -1,0 +1,3 @@
+# `superlint`
+
+> Supermind linting standards
