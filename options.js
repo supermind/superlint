@@ -3,8 +3,12 @@ var path = require('path')
 var eslint = require('eslint')
 var pkg = require('./package.json')
 
+var getRules = R.prop('rules')
+var isObject = R.pipe(R.type, R.equals('Object'))
+var isRulesObject = R.propSatisfies(isObject, 'rules')
+var buildRules = R.ifElse(isRulesObject, getRules, R.always({}))
+
 var getFix = R.propOr(false, 'fix')
-var getRules = R.propOr({}, 'rules')
 var getRulesets = R.propOr('', 'use')
 var addBaseRuleset = R.concat(['supermind'])
 var prefixRulesets = R.map(R.concat('supermind/'))
@@ -14,6 +18,7 @@ var allowRulesets = R.intersection([
   'inferno',
   'react'
 ])
+
 var buildRulesets = R.compose(
   addBaseRuleset,
   prefixRulesets,
@@ -25,7 +30,7 @@ var buildConfig = function(config) {
   return {
     root: true,
     extends: buildRulesets(config),
-    rules: getRules(config)
+    rules: buildRules(config)
   }
 }
 
