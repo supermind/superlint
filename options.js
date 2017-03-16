@@ -12,5 +12,7 @@ module.exports = {
   eslintConfig: {
     configFile: path.join(__dirname, 'eslintrc.js')
   },
-  cwd: ''
+  parseOpts(opts, packageOpts) {
+    console.log(packageOpts)
+  }
 }
