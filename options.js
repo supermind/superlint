@@ -1,7 +1,33 @@
-var _ = require('lodash')
+var R = require('ramda')
 var path = require('path')
 var eslint = require('eslint')
 var pkg = require('./package.json')
+
+var getFix = R.propOr(false, 'fix')
+var getRules = R.propOr({}, 'rules')
+var getRulesets = R.propOr('', 'use')
+var addBaseRuleset = R.concat(['supermind'])
+var prefixRulesets = R.map(R.concat('supermind/'))
+var allowRulesets = R.intersection([
+  'flowtype',
+  'jsx-a11y',
+  'inferno',
+  'react'
+])
+var buildRulesets = compose(
+  addBaseRuleset,
+  prefixRulesets,
+  allowRulesets,
+  getRulesets
+)
+
+var buildConfig = function(config) {
+  return {
+    root: true,
+    extends: buildRulesets(config),
+    rules: getRules(config)
+  }
+}
 
 module.exports = {
   version: pkg.version,
@@ -10,23 +36,10 @@ module.exports = {
   eslint: eslint,
   cmd: 'superlint',
   tagline: 'Supermind linting standards',
-  eslintConfig: {
-    baseConfig: {
-      extends: [ 'supermind' ]
-    }
-    // configFile: path.join(__dirname, 'eslintrc.js')
-  },
-  parseOpts(options, config) {
-    console.log('--- options ---')
-    console.log(options)
-    console.log('--- config ---')
-    console.log(config)
-    options.fix = _.get(config, 'fix', false)
-    // if (config.use) {
-    //   var eslintrc = require('./eslintrc')
-    //   eslintrc.extends.concat(config.use)
-    //   console.log(eslintrc)
-    // }
+  parseOpts: function(options, config) {
+    var eslintConfig = options.eslintConfig = {}
+    eslintConfig.fix = options.fix = getFix(config)
+    eslintConfig.baseConfig = buildConfig(config)
     return options
   }
 }
