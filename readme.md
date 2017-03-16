@@ -65,8 +65,8 @@ These options map to the rulesets from `eslint-config-supermind`.
 
 Additional fields that can be set on the `superlint` object are as follows:
 
-* `globals` — Array of globals
-* `plugins` — Array of ESLint plugins
+* `globals` — Array of globals eg. `[ "$", "_" ]`
+* `plugins` — Array of ESLint plugins eg. `[ "plugin" ]`
 * `parser` — Custom parser eg. `babel-eslint`
-* `envs` — Array of environments eg. `[ 'browser', 'mocha' ]`
-* `fix` — Automatically fix autofixable errors
+* `envs` — Array of environments eg. `[ "browser", "mocha" ]`
+* `fix` — Boolean to automatically fix errors
