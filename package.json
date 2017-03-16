@@ -31,7 +31,7 @@
   "dependencies": {
     "eslint": "^3.17.1",
     "eslint-config-supermind": "^0.20.0",
-    "lodash": "^4.17.4",
+    "ramda": "^0.23.0",
     "standard-engine": "^6.0.0"
   }
 }
