@@ -45,8 +45,6 @@ module.exports = {
     var eslintConfig = options.eslintConfig = {}
     eslintConfig.fix = options.fix = getFix(config)
     eslintConfig.baseConfig = buildConfig(config)
-    console.log(config)
-    console.log(options)
     return options
   }
 }
