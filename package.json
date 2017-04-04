@@ -29,7 +29,7 @@
   "dependencies": {
     "eslint": "latest",
     "eslint-config-supermind": "latest",
-    "ramda": "^0.23.0",
-    "standard-engine": "^6.0.0"
+    "ramda": "latest",
+    "standard-engine": "latest"
   }
 }
