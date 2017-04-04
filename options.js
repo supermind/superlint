@@ -8,7 +8,7 @@ var isObject = R.pipe(R.type, R.equals('Object'))
 var isRulesObject = R.propSatisfies(isObject, 'rules')
 var buildRules = R.ifElse(isRulesObject, getRules, R.always({}))
 
-var getFix = R.propOr(false, 'fix')
+var getFix = R.propOr(true, 'fix')
 var getRulesets = R.propOr('', 'use')
 var addBaseRuleset = R.concat(['supermind'])
 var prefixRulesets = R.map(R.concat('supermind/'))
