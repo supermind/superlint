@@ -11,12 +11,10 @@
     "eslint",
     "rules"
   ],
-  "bin": {
-    "superlint": "cli.js"
-  },
   "files": [
     "*.js"
   ],
+  "bin": "cli.js",
   "main": "index.js",
   "scripts": {
     "test": "test"
