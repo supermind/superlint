@@ -1,5 +1,7 @@
 # Supermind Linting Standards
 
+Configurable ESLint wrapper around [`eslint-config-supermind`](https://github.com/supermind/eslint-config-supermind).
+
 Install `superlint` as a `devDependency`:
 
 ```sh
