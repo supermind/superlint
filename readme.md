@@ -49,7 +49,13 @@ Add a `superlint` field to `package.json`:
     "use": [
       "flowtype",
       "inferno"
-    ]
+    ],
+    "plugins": [
+      "mocha"
+    ],
+    "rules": {
+      "semi": [ "error", "always" ]
+    }
   }
 }
 ```
@@ -65,10 +71,13 @@ To add more linting goodness for Inferno, React or Flowtype, pass an array of st
 
 These options map to the rulesets from `eslint-config-supermind`.
 
-Additional fields that can be set on the `superlint` object are as follows:
+Fields that can be set on the `superlint` object are as follows:
 
+* `use` — Array of rulesets from `eslint-config-supermind`
+* `ignore` — Glob or array of globs eg. `"build"`
 * `globals` — Array of globals eg. `[ "$", "_" ]`
-* `plugins` — Array of ESLint plugins eg. `[ "plugin" ]`
+* `plugins` — Array of ESLint plugins eg. `[ "mocha" ]`
 * `parser` — Custom parser eg. `babel-eslint`
+* `rules` — Rules object eg. `{ "semi": [ "error", "always" ] }`
 * `envs` — Array of environments eg. `[ "browser", "mocha" ]`
 * `fix` — Boolean to automatically fix errors
