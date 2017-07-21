@@ -27,9 +27,9 @@
     "url": "https://github.com/supermind/superlint/issues"
   },
   "dependencies": {
-    "eslint": "latest",
-    "eslint-config-supermind": "latest",
-    "ramda": "latest",
-    "standard-engine": "latest"
+    "eslint": "^4.2.0",
+    "eslint-config-supermind": "^0.32.0",
+    "ramda": "^0.24.1",
+    "standard-engine": "^7.1.0"
   }
 }
